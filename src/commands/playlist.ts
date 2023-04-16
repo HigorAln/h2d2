@@ -16,7 +16,6 @@ const pingCommand = {
     .setName("lofi")
     .setDescription("Reproduz uma playlist de rock")
   )
-
   .addSubcommand(subcommand => subcommand
     .setName("old")
     .setDescription("Reproduz uma playlist de de musicas antigas")
