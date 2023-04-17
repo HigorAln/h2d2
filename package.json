@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "deploy-commands": "tsx src/deploy-commands.ts",
-    "build": "tsup src/**/*.ts && ls",
+    "build": "tsup src/**/*.ts src/index.ts && ls",
     "start": "node dist/index.js"
   },
   "author": "Higor Allan",
