@@ -33,12 +33,12 @@ client.login(TOKEN);
 
 client.on(Events.InteractionCreate, async interaction => {
   console.log({ interaction: interaction.isChatInputCommand })
-  // if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) return;
 
   const command = commands.get(interaction.commandName) as {execute: (data: Interaction<CacheType>) => Promise<void>}
 
   if (!command) {
-    console.error("Comando não encontrado", interaction.customId)
+    console.error("Comando não encontrado")
     return
   }
 
