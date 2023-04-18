@@ -1,3 +1,9 @@
-import { ChatGPTAPI } from 'chatgpt'
+import { OpenAIApi, Configuration } from 'openai'
 
-export const chatgpt = new ChatGPTAPI({ apiKey: process.env.SECRET_KEY! })
+const apiKey = process.env.SECRET_KEY!
+
+const configuration = new Configuration({
+  apiKey: apiKey,
+})
+
+export const chatgpt = new OpenAIApi(configuration)

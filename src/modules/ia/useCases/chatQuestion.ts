@@ -1,21 +1,21 @@
 import { EmbedBuilder, ChatInputCommandInteraction, CacheType } from "discord.js";
+import { chatgpt } from "../../../lib/ChatGPT";
 
 export async function chatQuestion(question: string, interaction: ChatInputCommandInteraction<CacheType>){
   try {
-    const { ChatGPTAPI } = await import("chatgpt");
-    console.log({ secret: process.env.SECRET_KEY! })
+    const completion = await chatgpt.createCompletion({
+      model: "davinci",
+      prompt: question,
+      temperature: 0.5,
+      max_tokens: 70
+    })
 
-    const api = new ChatGPTAPI({
-      apiKey: process.env.SECRET_KEY!
-    });
-
-
-    const response = await api.sendMessage(question)
+    const response = completion.data.choices[0].text
 
     const embed = new EmbedBuilder()
       .setColor(0x0099FF)
       .setTitle(`Pergunta: ${question}`)
-      .setDescription(response.text)
+      .setDescription(response || "")
       .setTimestamp()
   
     interaction.editReply({ embeds: [embed] })
