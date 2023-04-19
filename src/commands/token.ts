@@ -81,7 +81,7 @@ const token = {
         data: {
           identify: userId,
           tokens: randomToken,
-          time_last_token: timeYesterday,
+          time_last_token: currentDate.getTime(),
         }
       })
 
