@@ -8,7 +8,7 @@ dotenv.config();
 const { TOKEN, CLIENT_ID, GUILD_ID } = process.env; 
 
 const commandsPath = path.join(__dirname, "commands")
-const commandsFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".(ts|js)"))
+const commandsFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".ts"))
 
 const commands: ClassInputCommandInteraction[] = []
 

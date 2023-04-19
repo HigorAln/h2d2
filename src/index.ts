@@ -43,9 +43,9 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 
   try {
-    await command.execute(interaction)
+    await command.execute(interaction)  
   }catch(err){
     console.error(err)
-    await interaction.reply({ content: "Ocorreu um erro ao executar esse comando", ephemeral: true })
+    interaction.reply({ content: "Ocorreu um erro ao executar esse comando", ephemeral: true })
   }
 })

@@ -14,3 +14,10 @@ model Chat {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   time_last_message Int
 }
+
+model User {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  identify     String @unique
+  tokens    Int
+  time_last_token Int
+}
