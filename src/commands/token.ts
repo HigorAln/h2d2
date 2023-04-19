@@ -74,8 +74,6 @@ const token = {
 
     if (!findUser) {
       const currentDate = new Date();
-      const yesterday = new Date(currentDate.setDate(currentDate.getDate() - 1));
-      const timeYesterday = yesterday.getTime()
 
       await prisma.user.create({
         data: {
