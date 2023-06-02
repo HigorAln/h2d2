@@ -2,6 +2,7 @@ import { Client, Events, GatewayIntentBits, Collection, Interaction, CacheType }
 import fs from "node:fs"
 import path from "node:path"
 import dotenv from 'dotenv'
+import { generateNoticies } from './tasks/notices';
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ for (const file of commandsFiles) {
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
+
+  generateNoticies({ client })
 });
 
 client.login(TOKEN);
