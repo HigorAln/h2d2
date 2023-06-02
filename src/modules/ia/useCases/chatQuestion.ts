@@ -7,7 +7,6 @@ export async function chatQuestion(question: string, interaction: ChatInputComma
       model: "davinci",
       prompt: question,
       temperature: 0.5,
-      max_tokens: 70
     })
 
     const response = completion.data.choices[0].text
